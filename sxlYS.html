@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华养生</title>
+    <link rel="shortcut icon" href="favicon.ico"  type="image/x-icon"/>     
+    <link rel="stylesheet" href="css/sxlSY.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            let num=0;
+		    let timer=null;
+            console.log("页面加载成功");
+            timechanger();
+            $(".lunboquyu").mouseenter(function(){
+				clearInterval(timer);
+			});
+			$(".lunboquyu").mouseleave(function(){
+				timechanger();
+			});
+
+            $(".arrowleft").click(function(){
+				console.log("左");
+				num--;
+				if(num==-1)
+				{
+					num=2;
+					$("#luboimg").css("left","-1920px");
+				}
+				$("#luboimg").animate({"left":-960*num+"px"},500);
+				$("#indicatorimg li").eq(num).addClass("active");
+				$("#indicatorimg li").not(':eq('+num+')').removeClass("active");
+			});
+            $(".arrowright").click(function(){	
+				num++;
+				if(num==3)
+				{
+					$("#luboimg").animate({"left":-960*num+"px"},500);
+					$("#indicatorimg li").eq(0).addClass("active");
+					$("#indicatorimg li").eq(2).removeClass("active");
+					$("#indicatorimg li").not(':eq0').removeClass("active");
+				}
+				if(num>3)
+				{	
+					num=1;
+					$("#luboimg").css("left","-960px");
+				}
+				//轮播图片的
+				$("#luboimg").animate({"left":-960*num+"px"},500);
+				//圆点的
+				$("#indicatorimg li").eq(num).addClass("active");
+				$("#indicatorimg li").not(':eq('+num+')').removeClass("active");
+			});
+
+
+            $("#indicatorimg #one").click(function(){
+				// console.log("1");
+				num=0;
+				yuandian();
+			});
+			$("#indicatorimg #two").click(function(){
+				// console.log("2");
+				num=1;
+				yuandian();
+			});
+			$("#indicatorimg #three").click(function(){
+				num=2;
+				yuandian();				
+			});
+
+            function timechanger(){
+			 timer=setInterval(function(){
+				console.log("定时操作");
+				num++;
+				if(num>3)
+				{
+					num=1;
+					$("#luboimg").css("left","0px");
+				}
+				if(num==3)
+				{
+					$("#luboimg").animate({"left":-960*num+"px"},500);
+					$("#indicatorimg li").eq(0).addClass("active");
+					$("#indicatorimg li").eq(2).removeClass("active");                  
+					$("#indicatorimg li").not(':eq0').removeClass("active");
+				}
+				$("#indicatorimg li").eq(num).addClass("active");
+				$("#indicatorimg li").eq(num-1).removeClass("active");
+				$("#indicatorimg li").not(':eq('+num+')').removeClass("active");
+				$("#luboimg").animate({"left":-960*num+"px"},500)},3000);
+		}
+        function yuandian()
+		{
+				$("#luboimg").css("left",-960*num+"px");
+				$("#indicatorimg li").eq(num).addClass("active");
+				$("#indicatorimg li").not(':eq('+num+')').removeClass("active");
+		}
+
+        var $gg=$(".gg"),
+        $window=$(window),
+        offset=$gg.offset(),
+        topPad=500;
+        $window.scroll(function(){
+            if($window.scrollTop()>offset.top)
+            {
+                $gg.stop().animate({
+                    marginTop:$window.scrollTop()-offset.top+topPad
+                });
+            }
+            else
+            {
+                $gg.stop().animate({
+                    marginTop:0
+                });
+            }
+        });
+        });
+
+        $(window).scroll(function() {
+           
+				
+
+                if($(window).scrollTop() > 300) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').addClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                    // ysthree ysfour ysfive yssix ysseven yseight
+                   
+                }
+                if($(window).scrollTop() > 700) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').addClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 1700) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').addClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 2300) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').addClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 2700) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').addClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 3200) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').addClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 3700) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').addClass("yanshe1");
+                    $('.daohan #yseight').removeClass("yanshe1");
+                }
+                if($(window).scrollTop() > 4100) {
+                    $('.top_soushuo').addClass("box_active");
+                    $('.daohan #ysone').removeClass("yanshe1");
+                    $('.daohan #ystwo').removeClass("yanshe1");
+                    $('.daohan #ysthree').removeClass("yanshe1");
+                    $('.daohan #ysfour').removeClass("yanshe1");
+                    $('.daohan #ysfive').removeClass("yanshe1");
+                    $('.daohan #yssix').removeClass("yanshe1");
+                    $('.daohan #ysseven').removeClass("yanshe1");
+                    $('.daohan #yseight').addClass("yanshe1");
+                }
+                if($(window).scrollTop() > 190) {
+					$('.top_soushuo').addClass("box_active");
+                    // $('.daohan').addClass("daohan_active");
+
+				} 
+                else {
+					$('.top_soushuo').removeClass("box_active");
+                    $('.daohan').removeClass("daohan_active");
+				}
+			
+			});
+
+
+    </script>
+
+</head>
+<body>
+    <div class="top">
+        <div class="contion">
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">养生人群</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">资讯</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">中医</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">食谱</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">四季养生</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">养生知识</a></li>
+            <li class="spacer"></li>
+            <li><a href="#">心理健康</a></li>
+        </ul>
+        <ul class="fr">
+            <li  id="top_wh">
+                <div class="top_wzdh">
+                <i class="icon-menu"><a href="#">网站导航</a></i>
+                </div>
+                <div class="top_wzdh_pop">
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">养生人群</a></li>
+                        <li><a href="#">男性</a></li>
+                        <li><a href="#">女性</a></li>
+                        <li><a href="#">孕产妇</a></li>
+                        <li><a href="#">白领</a></li>
+                        <li><a href="#">儿童</a></li>
+                        <li><a href="#">中老年</a></li>
+                        <li><a href="#">两性</a></li>
+                    </ul>
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">资讯</a></li>
+                        <li><a href="#">今日头条</a></li>
+                        <li><a href="#">名人养生</a></li>
+                        <li><a href="#">曝光台</a></li>
+                    </ul>
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">中医</a></li>
+                        <li><a href="#">中药大全</a></li>
+                        <li><a href="#">中医养生</a></li>
+                        <li><a href="#">中医偏方</a></li>
+                        <li><a href="#">功效与作用</a></li>                    
+                    </ul>
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">食谱</a></li>
+                        <li><a href="#">养生食谱</a></li>
+                        <li><a href="#">养生食材</a></li>                     
+                    </ul>
+                
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">四季养生</a></li>                     
+                        <li><a href="#">春季养生</a></li>
+                        <li><a href="#">夏季养生</a></li>
+                        <li><a href="#">秋季养生</a></li>
+                        <li><a href="#">冬季养生</a></li>
+                        <li><a href="#">24节气</a></li>
+                    </ul>
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">养生常识</a></li>
+                        <li><a href="#">食疗养生</a></li>
+                        <li><a href="#">养生禁忌</a></li>
+                        <li><a href="#">图说健康</a></li>
+                        <li><a href="#">疾病库</a></li>
+                        <li><a href="#">减肥瘦身</a></li>
+                        <li><a href="#">美容美体</a></li>
+                        
+                    </ul>    
+                    <ul class="pop_ul">
+                        <li class="li_bold"><a class="a_bold" href="#">心理健康</a></li>
+                        <li><a href="#">心理常识</a></li>
+                        <li><a href="#">心理疾病</a></li>
+                        <li><a href="#">婚恋情感</a></li>
+                        <li><a href="#">人际交往</a></li>
+                        <li><a href="#">职场心理</a></li>
+                        <li><a href="#">心灵鸡汤</a></li>
+                        <li><a href="#">人群心理</a></li>
+                    </ul>              
+                </div>
+            </li>
+            <li  id="top_erweima">
+                <div class="top_erwei">
+                    <i class="icon-qrcode"></i>
+                    <a href="#">微信技术者</a>
+                </div>
+                <div class="top_erweima_pop">
+                    <img src="images/微信二维码.jpg">
+                </div>
+            </li>
+
+            <li >
+                <div>
+                    <i class="icon-qrcode"></i>
+                    <a href="#">微信公众号</a>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+        
+    <div class="top_soushuo">
+        <div class="contion">
+            <img src="images/logo.png">
+            <div class="select">
+                <input  class="input1"  type="text" placeholder="请输入关键字">
+                <div  class="input2"><i class="icon-search"></i></div>
+            </div>
+            <div class="wenzi">
+                <i class="icon-pacman"></i>
+                <h3>健康同行</h3>
+                <p>传递幸福人生</p>
+            </div>
+            <div class="wenzi2 wenzi">
+                <i class="icon-pacman"></i>
+                <h3>关爱养生</h3>
+                <p>关爱健康生活</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="top_bottom">
+        <div class="contion">
+            <ul>
+                <li class="two">
+                    <a class="big" href="#">首页</a>
+                </li>
+
+                <li class="four">
+                    <div class="hover">
+                        <a href="#">养生人群</a>
+                        <i class="icon-ctrl"></i>
+                    </div>
+                </li>             
+                <li class="two">
+                    <div class="hover">
+                        <a href="#">资讯</a>
+                        <i class="icon-ctrl"></i>
+                  </div>
+                </li>             
+                <li class="two">
+                    <div class="hover">
+                        <a href="#">中医</a>
+                        <i class="icon-ctrl"></i>
+                    </div>             
+                </li>            
+                <li class="two">
+                    <div class="hover">
+                        <a href="#">食谱</a>
+                        <i class="icon-ctrl"></i>
+                    </div>                  
+                </li>             
+                <li class="four">
+                    <div class="hover">
+                        <a href="#">四季养生</a>
+                        <i class="icon-ctrl"></i>
+                    </div>        
+                </li>              
+                <li class="four">
+                    <div class="hover">
+                        <a href="#">养生知识</a>
+                        <i class="icon-ctrl"></i>
+                    </div>       
+                </li>              
+                <li class="four">
+                    <div class="hover">
+                        <a href="#">心理健康</a>
+                        <i class="icon-ctrl"></i>
+                    </div>               
+                </li>
+            </ul>
+        </div>
+    </div>
+<!-- 导航 -->
+    <div class="daohan">
+        <img src="favicon.ico">
+        <ul>
+            <li id="ysone"><a id="ysone_one" href="#yszx">资讯</a></li>
+            <li id="ystwo"><a href="#slshicai">食材</a></li>
+            <li id="ysthree"><a href="#ysshibu">食谱</a></li>
+            <li id="ysfour"><a href="#zy">常识</a></li>
+            <li id="ysfive"><a href="#ysrq">人群</a></li>
+            <li id="yssix"><a href="#xljk">健康</a></li>
+            <li id="ysseven"><a href="#yy">医院</a></li>
+            <li id="yseight"><a href="#sp">视频</a></li>
+        </ul>
+        <i class="icon-svg"></i>
+    </div>
+<!-- 全局客服 -->
+    <div class="gg">
+        <ul>
+            <li><a href="#">客服</a><img src="images/客服.png" alt=""></li>
+            <li><a href="#"></a><img src="images/客服2.png" alt=""></li>
+        </ul>
+    </div>
+<!-- 广告 -->
+    <div  class="guangao">
+        <div class="contion">
+            <div class="lunbo">
+                <div class="lunbodiv">
+                    <ul> 
+                        <li id="lunbo_ysrq">
+                            <div class="lunbodiv_item">
+                                <i class="icon-users"></i><a>养生人群</a><i class="icon-ctrlleft"></i>
+                            </div>                         
+                            <div class="lunbodiv_item_pop">
+                                <div class="pop_kuai">
+                                    <h4>男性</h4>
+                                    <p>男人补肾,壮阳</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>女性</h4>
+                                    <p>妇科保养，减肥养颜</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>儿童</h4>
+                                    <p>宝宝吃饭饮食健康</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>两性</h4>
+                                    <p>啪啪啪</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>白领</h4>
+                                    <p>上班族久坐保健</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>中老年</h4>
+                                    <p>中老年人养生</p>
+                                </div>
+                            </div>          
+                        </li>                       
+                                          
+                        <li id="lunbo_ysys">  
+                            <div class="lunbodiv_item">
+                                <i class="icon-spoon-knife"></i><a>饮食养生</a><i class="icon-ctrlleft"></i>
+                            </div>
+                            <div class="lunbodiv_item_pop">
+                                <div class="pop_kuai">  
+                                    <h4>食疗养生</h4>
+                                    <p>学习掌握食疗养生</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>养生食谱</h4>
+                                    <p>养生保健的食谱</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>养生汤粥</h4>
+                                    <p>长寿老人爱喝粥</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>蔬菜水果</h4>
+                                    <p>中医叫它"夫妻菜</p>
+                                </div>
+                            </div>          
+                        </li>
+                        <li id="lunbo_sjys">
+                            <div class="lunbodiv_item">
+                                <i class="icon-brightness-contrast"></i><a>四季养生</a><i class="icon-ctrlleft"></i>
+                            </div>                                                   
+                            <div class="lunbodiv_item_pop">
+                                <div class="pop_kuai">
+                                    <h4>春季</h4>
+                                    <p>一年之计在于春</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>夏季</h4>
+                                    <p>热以凉克之，燥以清驱之</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>秋季</h4>
+                                    <p>养肾为先、温食忌硬</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>冬季</h4>
+                                    <p>啪啪啪</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>节气</h4>
+                                    <p>二十四节气养生</p>
+                                </div>
+                            </div>          
+                        </li>
+                        <li  id="lunbo_ydys">                          
+                            <div class="lunbodiv_item">
+                                <i class="icon-accessibility"></i><a>运动养生</a><i class="icon-ctrlleft"></i>
+                            </div>                                                                     
+                            <div class="lunbodiv_item_pop">
+                                <div class="pop_kuai">
+                                    <h4>瑜伽</h4>
+                                    <p>女人练习瑜伽的好处</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>健身</h4>
+                                    <p>健身减肥瘦身</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>太极</h4>
+                                    <p>身心兼修的练举健身</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>运动</h4>
+                                    <p>气功调息、调身、调心</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>广场舞</h4>
+                                    <p>全民健身广场舞</p>
+                                </div>
+                            </div>          
+                        </li>
+
+                        <li id="lunbo_zyys">              
+                            <div id="yszx" class="lunbodiv_item">
+                                <i class="icon-leaf"></i><a>中医养生</a><i class="icon-ctrlleft"></i>
+                            </div>                                                                     
+                            <div class="lunbodiv_item_pop">
+                                <div class="pop_kuai">
+                                    <h4>经络养生</h4>
+                                    <p> 有病治病，无病防病</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>针灸养生</h4>
+                                    <p>针灸方法保健强身</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>穴位养生</h4>
+                                    <p>穴位保健按摩</p>
+                                </div>
+                                <div class="pop_kuai">
+                                    <h4>药膳养生</h4>
+                                    <p> 药膳养生秘诀</p>
+                                </div>                             
+                            </div>          
+                        </li>
+                    </ul>
+                </div>
+                <div class="lunboquyu">
+                    <button class="arrow arrowleft" onclick="left()"><</button>
+                    <ul id="luboimg" >
+                        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+                                                                                
+                    </ul>
+                    <button class="arrow arrowright" onclick="right()">></button>
+                    <ul id="indicatorimg">
+                        <li id="one" class="active"></li>
+                        <li id="two"></li>
+                        <li id="three"></li>
+                    </ul>
+                </div>       
+            </div>     
+            <div class="denglu">  
+                <i class="icon-heart"></i>              
+                <h2>热门养生</h2>
+                <div class="rmys">
+                    <div class="rmys_kuai">
+                        <img src="images/热门养生1.png">
+                        <div class="rmys_kuai_right">
+                            <h5>恶性癌症 这种手术外科医生都不愿做臭味熏人</h4>
+                           <p>&nbsp;&nbsp;&nbsp;&nbsp;胃癌是一种恶性癌症,如果早期不及时的进行</p>
+                           <div class="rmys_kuai_right_bottom">
+                               <ul>
+                                   <li><a href="#"><i class="icon-smile"></i></a></li>
+                                   <li class="two"><a href="#">热度</a></li>
+                                   <li class="three"><a href="#">93102</a></li>
+                               </ul>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="rmys_kuai">
+                        <img src="images/热门养生2.jpeg">
+                        <div class="rmys_kuai_right right2">
+                            <h5>口述：和亲姐姐做爱故事 我和亲姐姐的疯狂性爱故事</h4>
+                           <p>&nbsp;&nbsp;&nbsp;&nbsp;我与处女姐姐的性故事 口述操姐姐的经历,</p>
+                           <div class="rmys_kuai_right_bottom">
+                               <ul>
+                                   <li><a href="#"><i class="icon-smile"></i></a></li>
+                                   <li class="two"><a href="#">热度</a></li>
+                                   <li class="three"><a href="#">30102</a></li>
+                               </ul>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="rmys_kuai">
+                        <img src="images/热门养生3.jpg">
+                        <div class="rmys_kuai_right right3">
+                            <h5>少妇口述：夫妻相同爱好的故事</h4>
+                           <p>&nbsp;&nbsp;&nbsp;&nbsp;文章导读：我和强是高中同学，从高中刚进</p>
+                           <div class="rmys_kuai_right_bottom">
+                               <ul>
+                                   <li><a href="#"><i class="icon-smile"></i></a></li>
+                                   <li class="two"><a href="#">热度</a></li>
+                                   <li class="three"><a href="#">35102</a></li>
+                               </ul>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+            <div class="clear"></div>
+        </div>
+    </div>
+<!-- 广告下面的 -->
+    <div  class="zhong">       
+        <div class="zhong_left"> <i class="icon-section"></i></div>
+        <div class="contion">
+            <ul>
+                <li><a href="#" class="yello">抗癌</a></li>
+                <li class="three"><a href="#" class="gree">降血糖</a></li>
+                <li class="three"><a href="#" class="pink">降血脂</a></li>
+                <li class="three"><a href="#" class="blue">降血压</a></li>
+                <li class="three"><a href="#" class="yello">抗衰老</a></li>
+                <li><a href="#" class="pink">减肥</a></li>
+                <li><a href="#" class="gree">消肿</a></li>
+                <li><a href="#" class="yello">利尿</a></li>
+                <li><a href="#" class="blue">止咳</a></li>
+                <li><a href="#" class="gree">润肺</a></li>
+                <li><a href="#" class="yello">养肝</a></li>
+                <li><a href="#" class="pink">养胃</a></li>
+                <li><a href="#" class="blue">养心</a></li>
+                <li><a href="#" class="yello">养颜</a></li>
+                <li><a href="#" class="pink">润肠</a></li>
+                <li><a href="#" class="blue">清热</a></li>
+                <li class="five"><a  class="yello" href="#">提高免疫力</a></li>
+                <li><a href="#" class="pink">消食</a></li>
+                <li><a href="#" class="yello">活血</a></li>
+                <li><a href="#"class="gree" >生津</a></li>
+                <li><a href="#" class="pink">排毒</a></li>
+                <li><a href="#" class="blue">明目</a></li>
+                <li><a href="#" class="gree">安神</a></li>
+                <li><a href="#" class="pink">健脑</a></li>
+                <li><a href="#" class="yello">滋明</a></li>
+                <li><a href="#" class="gree" >壮阳</a></li>
+                <li><a href="#" class="yello">补虚</a></li>
+                <li><a href="#" class="blue">补气</a></li>
+                <li><a href="#" class="pink">健脾</a></li>
+                <li><a href="#" class="yello">补肾</a></li>
+                <li><a href="#" class="blue">补血</a></li>
+            </ul>
+        </div>
+        <div  class="zhong_right"><i class="icon-section"></i></div>
+    </div>
+<!-- 养生资讯 -->
+    <div class="yszx">
+        <div class="contion">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-svg"></i>
+                </div>   
+                <h2>养&emsp;/&emsp;生&emsp;/&emsp;资&emsp;/&emsp;讯</h2>
+                <div class="title_right">
+                    <i class="icon-svg"></i>
+                </div>
+               
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯1.jpg">
+                <p>三伏天养生要做到“三点”，不知道的一定要了解</p>
+                <div class="img_item">
+                    <ul>
+                        <li><a href="#">风湿性关节炎</a></li>
+                        <li><a href="#">苦荞麦</a></li>
+                        <li><a href="#">养生</a></li>
+                        <li><a href="#">足三里穴</a></li>
+                        <li><a href="#">三伏天</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯2.jpg">
+                <p>“药王”孙思邈活了142岁，他的养生秘诀是什么呢？</p>
+                <div class="img_item">
+                    <ul>
+                        <li><a href="#">孙思</a></li>
+                        <li><a href="#">北周</a></li>
+                        <li><a href="#">西魏</a></li>
+                        <li><a href="#">千金方</a></li>
+                        <li><a href="#">高寿</a></li>
+                        <li><a href="#">隋朝</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯3.jpg">
+                <p>早上空腹时，吃“此3样”特别容易养生，怪不得别人身体那么好</p>
+                <div class="img_item">
+                    <ul>                        
+                        <li><a href="#">黑芝麻</a></li>
+                        <li><a href="#">牛奶</a></li>
+                        <li><a href="#">山药</a></li>
+                        <li><a href="#">黑芝麻糊</a></li>
+                        <li><a href="#">空腹</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯4.jpg">
+                <p>日常健康养生小常识：饭后六大禁忌</p>
+                <div class="img_item">
+                    <ul>                    
+                        <li><a href="#">樱桃</a></li>
+                        <li><a href="#">饭后</a></li>
+                        <li><a href="#">消化道</a></li>
+                        <li><a href="#">消化不良</a></li>
+                        <li><a href="#">原花青素</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img id="slshicai" src="images/养生资讯5.jpg">
+                <p>养生，从认识自己的身体开始</p>
+                <div class="img_item">
+                    <ul>
+                        <li><a href="#">六式大极基本功法</a></li>
+                        <li><a href="#">董海川</a></li>
+                        <li><a href="#">生理系统</a></li>
+                        <li><a href="#">养生</a></li>
+                        <li><a href="#">藏象</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯6.jpg">
+                <p>养生小常识之正确的喝水方法，你做对了吗？</p>
+                <div class="img_item">
+                    <ul>               
+                        <li><a href="#">手脚冰凉</a></li>
+                        <li><a href="#">蜂蜜</a></li>
+                        <li><a href="#">攻瑰花</a></li>
+                        <li><a href="#">红糖</a></li>
+                        <li><a href="#">心脑血管</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资7.jpg">
+                <p>心理因素与健康密不可分，坚持这5个养心法则，健康属于你</p>
+                <div class="img_item">
+                    <ul>             
+                        <li><a href="#">有益健康</a></li>
+                        <li><a href="#">延年益寿</a></li>
+                        <li><a href="#">与人为善</a></li>
+                        <li><a href="#">仁者寿</a></li>
+                        <li><a href="#">盛夏养心5法则</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="yszx_kuai">
+                <img src="images/养生资讯8.jpg">
+                <p>中老年人要想健康养生 应该牢记这6个按时</p>
+                <div class="img_item">
+                    <ul> 
+                        <li><a href="#">慢性疾病</a></li>
+                        <li><a href="#">好习惯</a></li>
+                        <li><a href="#">健康养生</a></li>
+                        <li><a href="#">中老年人</a></li>
+                        <li><a href="#">平时</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+<!-- 时令食材 -->
+    <div class="slshicai">
+        <div class="contion">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-clubs"></i>
+                </div>   
+                <h2>时&emsp;/&emsp;令&emsp;/&emsp;食&emsp;/&emsp;材</h2>
+                <div class="title_right">
+                    <i class="icon-clubs"></i>
+                </div>
+               
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材1.jpg">
+                <div class="image_jieshao">
+                    <p>菠菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材2.jpg">
+                <div class="image_jieshao">
+                    <p>芥蓝</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材3.jpg">
+                <div class="image_jieshao">
+                    <p>胡萝卜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材5.jpg">
+                <div class="image_jieshao">
+                    <p>芹菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材4.jpg">
+                <div class="image_jieshao">
+                    <p>油麦菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材6.jpg">
+                <div class="image_jieshao">
+                    <p>菜心</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材7.jpg">
+                <div class="image_jieshao">
+                    <p>芥菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材8.jpg">
+                <div class="image_jieshao">
+                    <p>青椒</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材9.jpg">
+                <div class="image_jieshao">
+                    <p>橘子</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材10.jpg">
+                <div class="image_jieshao">
+                    <p>甘泽</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材11.jpg">
+                <div class="image_jieshao">
+                    <p>白菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材12.jpg">
+                <div class="image_jieshao">
+                    <p>马蹄爽</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材13.jpg">
+                <div class="image_jieshao">
+                    <p>油菜</p>   
+                </div>
+            </div>
+            <div class="slshicai_kuai">
+                <img src="images/时令食材14.jpg">
+                <div class="image_jieshao">
+                    <p>柚子</p>   
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 杂 -->
+    <div class="zha">
+        <div class="contion">
+            <div class="zha_kuai">
+                <div class="zha_kuai_title">
+                    <div class="yanshe"></div>
+                    <h3>饮食养生</h3>
+                </div>
+                <div class="zha_kuai_img">
+                    <img src="images/饮食养生.jpg" >
+                    <div class="zha_kuai_img_jieshao">
+                        <p id="ysshibu">6大坚果营养大比拼,这样吃健康又抗癌!</p>
+                    </div>
+                </div>
+                <div class="zha_kuai_item">
+                    <ul>
+                        <li><a href="#">婴幼儿腹泻吃什么食物好 护理腹泻儿童要注意什么</a></li>
+                        <li><a href="#">角膜炎饮食有什么禁忌吗？角膜炎患者的饮食宜忌</a></li>
+                        <li><a href="#">甲沟炎饮食方面要注意什么？有哪些东西不能吃呢</a></li>
+                        <li><a href="#">牙龈炎患者该如何饮食好 推荐缓解牙龈炎的饮食疗法</a></li>
+                    </ul>
+                </div>
+                <div class="time">
+                     <ul>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="zha_kuai">
+                <div class="zha_kuai_title">
+                    <div class="yanshe  yanshe1"></div>
+                    <h3>运动养生</h3>
+                </div>
+                <div class="zha_kuai_img">
+                    <img src="images/运动养生.jpg" >
+                    <div class="zha_kuai_img_jieshao zha_kuai_img_jieshao1">
+                        <p>万万没想到,长期步行的结果难以置信!</p>
+                    </div>
+                </div>
+                <div class="zha_kuai_item">
+                    <ul>
+                        <li><a href="#">晚上运动等于慢性自杀 晚上运动的最佳时间</a></li>
+                        <li><a href="#">女性练瑜伽要注意什么 三个特殊时期不注意毁全身</a></li>
+                        <li><a href="#">慢走和跑步都没它养生，远离腰痛、胃病…...受用无穷！</a></li>
+                        <li><a href="#"> 7个症状说明血管堵了！6个瑜伽动作让全身血液流通！</a></li>
+                    </ul>
+                </div>
+                <div class="time">
+                     <ul>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="zha_kuai">
+                <div class="zha_kuai_title">
+                    <div class="yanshe yanshe2"></div>
+                    <h3>中医养生</h3>
+                </div>
+                <div class="zha_kuai_img">
+                    <img src="images/中医养生.jpg" >
+                    <div class="zha_kuai_img_jieshao zha_kuai_img_jieshao2">
+                        <p>中医教你调养五脏之道,还你花容月貌!</p>
+                    </div>
+                </div>
+                <div class="zha_kuai_item">
+                    <ul>
+                        <li><a href="#"> 一妹纸用艾草煮水后 竟成了这个样子</a></li>
+                        <li><a href="#">艾灸后可以泡脚吗 艾灸前泡还是艾灸后泡</a></li>
+                        <li><a href="#">这个穴位是通调百病的“万能穴”</a></li>
+                        <li><a href="#">四款专治消化不良的药膳 防护从饮食做起</a></li>
+                    </ul>
+                </div>
+                <div class="time">
+                     <ul>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                        <li><a href="#">4/24</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 养生食谱 -->
+    <div class="ysshibu">
+        <div class="contion">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-spades"></i>
+                </div>   
+                <h2>养&emsp;/&emsp;生&emsp;/&emsp;食&emsp;/&emsp;谱</h2>
+                <div class="title_right">
+                    <i class="icon-spades"></i>
+                </div>
+               
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱1.jpg">
+                <div class="image_jieshao">
+                    <p>蒜蓉粉丝蒸丝瓜</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱2.jpg">
+                <div class="image_jieshao">
+                    <p>花蒸蛋</p>   
+                </div>
+            </div>
+                  
+            <div class="ysshibu_kuai">
+                <img src="images/食谱3.jpg">
+                <div class="image_jieshao">
+                    <p>香菇蒸鸡腿</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱4.jpg">
+                <div class="image_jieshao">
+                    <p>三鲜萝卜卷</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img id="zy" src="images/食谱5.jpg">
+                <div class="image_jieshao">
+                    <p>柠香清蒸鲈鱼</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱6.jpg">
+                <div class="image_jieshao">
+                    <p>蒜蓉蒸虾</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱7.jpg">
+                <div class="image_jieshao">
+                    <p>米汤鸡蛋羹</p>   
+                </div>
+            </div>
+            <div class="ysshibu_kuai">
+                <img src="images/食谱8.jpg">
+                <div class="image_jieshao">
+                    <p>豆豉蒸凤爪</p>   
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 中医 -->
+    <div class="yscopy_kuai zy">
+        <div class="contion">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-spades"></i>
+                </div>   
+                <h2>中&emsp;/&emsp;医&emsp;/&emsp;常&emsp;/&emsp;识</h2>
+                <div class="title_right">
+                    <i class="icon-spades"></i>
+                </div>
+            </div>
+            <div class="yscopy_kuai_left">
+                <div class="zy_left_kuai">
+                    <img src="images/中医左1.jpg">
+                        <h4>不用吃药就能预防缓解头疼</h4>
+                        <p>头疼是我们最常见的病了，常常吃药对身体也不好，所以我们在日常生活中很有必要学会预防和缓解头疼的...</p>   
+                </div>
+                <div class="zy_left_kuai">
+                    <img src="images/中医左2.jpg">
+                        <h4>如何巧用白萝卜治偏头疼 </h4>
+                        <p>偏头疼是我们生活中比较常见的一种疾病，虽然不至于要命，但一旦发作起来，会严重影响到患者的生活以...</p>   
+                </div>
+                <div class="zy_left_kuai">
+                    <img   id="ysrq" src="images/中医左3.jpg">
+                        <h4>盘点可以缓解头疼五个妙方</h4>
+                        <p>我们都会有头疼的时候，尤其是中老年人。这里，就向您介绍缓解头疼的五个简便易行的办法。</p>   
+                </div>
+            </div>
+            <div class="yscopy_kuai_right">
+                <div class="zy_right_kuai">
+                    <img src="images/中医右1.jpg">
+                    <div class="kuai_p">
+                        <p>头疼恶心是什么病</p>
+                    </div>               
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/中医右2.jpg">
+                    <div class="kuai_p">
+                        <p>民间五大坑爹的祛痘偏方</p>
+                    </div>             
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/中医右3.jpg">
+                    <div class="kuai_p">
+                        <p>民间五大坑爹的祛痘偏方</p>
+                    </div>
+                    <p>总失眠怎么办12偏万可赶</p>
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/中医右4.jpg">
+                    <div class="kuai_p">
+                        <p>揭10个科学证实的长寿偏方</p>
+                    </div>                 
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/中医右5.jpg">
+                    <div class="kuai_p">
+                        <p>预防脱发有哪些小偏方呢?</p>
+                    </div>         
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/中医右6.png">
+                    <div class="kuai_p">
+                        <p>口腔溃疡怎么办十个偏方</p>
+                    </div>      
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 养生人群 -->
+    <div class="yscopy_kuai blck">
+        <div class="contion ">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-spades"></i>
+                </div>   
+                <h2>养&emsp;/&emsp;生&emsp;/&emsp;人&emsp;/&emsp;群</h2>
+                <div class="title_right">
+                    <i class="icon-spades"></i>
+                </div>
+            </div>
+            <div class="yscopy_kuai_left">
+               <div class="ysrq_kuai">
+                   <h3>5步防止男性脱发</h3>
+                   <p class="p1">胖男人更容易发生不育</p>
+                   <p class="p2">男人更年期该怎么度过</p>
+               </div>
+               <div class="ysrq_kuai">
+                <h3>肌肉男教你在家如何练胸肌</h3>
+                <p class="p1">过量饮用白酒对男性的影响</p>
+                <p id="xljk" class="p2">有哪些研究称不经常刷牙男性更有可能阳痿</p>
+            </div>
+            <div class="ysrq_kuai">
+                <h3 >男人怎么保证好的睡眠质量</h3>
+                <p class="p1">黑眼圈是肾虚所致</p>
+                <p class="p2">按摩腹部三角区让男人重振雄风</p>
+            </div>
+            </div>
+            <div class="yscopy_kuai_right">
+                <div class="ysrq_kuai_img1">
+                    <img src="images/养生.jpg" >
+                    <p class="p3">男人适量饮西有好处</p>
+                    <img src="images/养生人1.jpg" >
+                    <p class="p4">男性防治脱发四方法</p>
+                </div>
+                <div class="ysrq_kuai_item">
+                    <h3>男人补肾壮阳良方　按按脚心能补肾</h3>
+                    <p>足部护理,足部护理，不仅仅使女性的天下。男性也要进行足部护理。虽然说男性在身体护理上都比女性少，更佳会忽略了足部。那么今天，我们就告诉你，男性的足部是需要好好护理的。男性的足部护理有哪些分类呢?下面跟小编一起去...</p>
+                </div>
+                <div class="ysrq_kuai_item">
+                    <h3>四类男性的足部护理方法</h3>
+                    <p>足部护理,随着年龄增大、性功能的衰退、工作生活压力的增大等各方面原因,越来越多的男人感觉自己在性生活中开始力不从心,据统计，85%以上的男性朋友出现不同程度症状的肾虚病症。这时候他们往往会选择壮阳药弥补自己的精力不...</p>
+                </div>
+                <div class="ysrq_kuai_item item3">
+                    <h3>男人按摩强壮身体 摩擦双耳疏通气血</h3>
+                    <p>足部护理,都市生活中压力、疲惫的您,想在北京这个繁华的都市寻找属于自己的理疗方式。现代男人想要健身也舒服，那么就可以去按摩店，但是保健按摩自己在家也可以。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 心理健康 -->
+    <div class="yscopy_kuai">
+        <div class="contion">
+            <div class="title">
+                <div class="title_left">
+                    <i class="icon-spades"></i>
+                </div>   
+                <h2>心&emsp;/&emsp;理&emsp;/&emsp;健&emsp;/&emsp;康</h2>
+                <div class="title_right">
+                    <i class="icon-spades"></i>
+                </div>
+            </div>
+            <div class="yscopy_kuai_left">
+                <div class="zy_left_kuai">
+                    <img src="images/心理健康左1.jpg">
+                        <h4>高考成绩公布，考生心理问题</h4>
+                        <p>全国各省的高考成绩陆续公布，此时考生的心理问题也是不容忽视的。高考出分的前后几天，是学生「心...</p>   
+                </div>
+                <div class="zy_left_kuai">
+                    <img src="images/心理健康左2.jpg">
+                        <h4>成熟的人有哪些特征? </h4>
+                        <p id="yy">成熟的人有哪些特征?我们在平时的生活中经常会听到有人说自己很成熟，或者某个人不够成熟，其实你...</p>   
+                </div>
+                <div class="zy_left_kuai">
+                    <img  src="images/心理健康左3.jpg">
+                        <h4>胆小怕事怎么办?</h4>
+                        <p>胆小怕事怎么办?在我们平时生活中会有非常多的朋友有胆小怕事的情况发生，他们会在一些特定的场合...</p>   
+                </div>
+            </div>
+            <div class="yscopy_kuai_right">
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右1.jpg">
+                    <div class="kuai_p">
+                        <p>高考前20天有哪些减压</p>
+                    </div>               
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右2.jpg">
+                    <div class="kuai_p">
+                        <p>高考焦虑测试方法</p>
+                    </div>             
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右3.jpg">
+                    <div class="kuai_p">
+                        <p>怎样缓解高考焦虑?</p>
+                    </div>
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右4.jpg">
+                    <div class="kuai_p">
+                        <p>高考考生心理舒缓方法有哪</p>
+                    </div>                 
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右5.jpg">
+                    <div class="kuai_p">
+                        <p>高考前怎样进行小理调节?</p>
+                    </div>         
+                </div>
+                <div class="zy_right_kuai">
+                    <img src="images/心理健康右6.jpg">
+                    <div class="kuai_p">
+                        <p>高考前如何调整心理?</p>
+                    </div>      
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 快速找医院 -->
+    <div class="yscopy2_kuai">
+        <div class="contion">
+            <div class="title">
+                <ul>
+                    <li class="yy_one"><a href="#">医院</a></li>                     
+                    <li class="yy_two"><a href="#">北京</a></li>
+                    <li><a href="#">上海</a></li>
+                    <li><a href="#">重庆</a></li>
+                    <li><a href="#">天津</a></li>
+                    <li><a href="#">广东</a></li>
+                    <li><a href="#">江苏</a></li>
+                    <li><a href="#">浙江</a></li>
+                    <li><a href="#">山东</a></li>
+                    <li><a href="#">辽宁</a></li>
+                    <li><a href="#">福建</a></li>
+                </ul>
+            </div>
+
+            <div class="yscopy2_kuai_left">
+                <div class="zyy_kuai_left">
+                    <img src="images/医院1.jpg" >
+                    <div class="img_right">
+                        <h4>北京大学第一医院肿瘤诊</h4>
+                        <p class="p6">010-64008287</p>
+                        <p class="p7">咨询</p>
+                    </div>
+                </div>
+                <div class="zyy_kuai_left">
+                    <img src="images/医院1.jpg" >
+                    <div class="img_right">
+                        <h4>北京市东城区建国门医院</h4>
+                        <p class="p6">010-65256218</p>
+                        <p class="p7">咨询</p>
+                    </div>
+                </div>
+               
+                <div class="zyy_kuai_left">
+                    <img  id="sp" src="images/医院2.png" >
+                    <div class="img_right">
+                        <h4>北京市东城区口腔医院</h4>
+                        <p class="p6"> 010-65591900</p>
+                        <p class="p7">咨询</p>
+                    </div>
+                </div>
+                <div class="zyy_kuai_left topbu">
+                    <h3>按疾病找</h3>
+                    <p class="p8">更多>></p>
+                    <ul>
+                        <li><a href="#">妇科</a></li>
+                        <li><a href="#">男科</a></li>
+                        <li><a href="#">白癜风</a></li>
+                        <li><a href="#">癫痫</a></li>
+                        <li><a href="#">人流</a></li>
+                        <li><a href="#">整形</a></li>
+                        <li><a href="#">不孕不育</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="yscopy2_kuai_right">
+                <div class="yscopy2_kuai_right_item">
+                    <img src="images/医院3.jpg">
+                    <ul>
+                        <li><a href="#">北京市东城区朝阳门医院</a></li>
+                        <li><a href="#">北京市东城区长安医院</a></li>
+                        <li><a href="#">北京航星机器制造公司北京</a></li>
+                        <li><a href="#">李E修牙所</a></li>
+                        <li><a href="#">中国中医科学院中医门诊部</a></li>
+                        <li><a href="#">北京拜尔口腔门诊部</a></li>
+                    </ul>
+                </div>
+                <div class="yscopy2_kuai_right_item">
+                    <img src="images/医院4.jpg">
+                    <ul>
+                        <li><a href="#">北京市东城区朝阳门医院</a></li>
+                        <li><a href="#">北京市东城区长安医院</a></li>
+                        <li><a href="#">北京航星机器制造公司北京</a></li>
+                        <li><a href="#">李E修牙所</a></li>
+                        <li><a href="#">中国中医科学院中医门诊部</a></li>
+                        <li><a href="#">北京拜尔口腔门诊部</a></li>
+                    </ul>
+                </div>
+                <div class="yscopy2_kuai_right_item">
+                    <img src="images/医院5.jpg">
+                    <ul>
+                        <li><a href="#">北京市东城区朝阳门医院</a></li>
+                        <li><a href="#">北京市东城区长安医院</a></li>
+                        <li><a href="#">北京航星机器制造公司北京</a></li>
+                        <li><a href="#">李E修牙所</a></li>
+                        <li><a href="#">中国中医科学院中医门诊部</a></li>
+                        <li><a href="#">北京拜尔口腔门诊部</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<!-- 视频 -->
+    <div class="yscopy2_kuai">
+        <div class="contion">
+            <div class="title">
+                <ul>
+                           
+                    <li class="yy_one"><a href="#">视频</a></li>                     
+                    <li ><a href="#">北京卫视养生堂</a></li>
+                    <li><a href="#">健康之路</a></li>
+                    <li><a href="#">饮食养生</a></li>
+                    <li><a href="#">家政女皇</a></li>
+                    <li><a href="#">天天饮食</a></li>
+                    <li><a href="#">万家灯火</a></li>
+                    <li><a href="#">健康北京</a></li>
+                </ul>
+            </div>
+
+            <div class="yscopy2_kuai_left kuai_left">
+                <img src="images/视频1.jpg" >
+                <div class="img_bottom">
+                    <h2>养生视频:20130313CCTV</h2>
+                    <div class="img_bottom_item qian">
+                        <ul>
+                            <li><a href="#">天天饮食:</a></li>
+                            <li><a href="#">天天饮食:</a></li>
+                            <li><a href="#">天天饮食:</a></li>
+                        </ul>
+                    </div>
+                    <div class="img_bottom_item2">
+                        <ul>
+                            <li><a href="#">【养生视频】天天饮食面食</a></li>
+                            <li><a href="#">【养生视频】天天饮食视频</a></li>
+                            <li><a href="#">【养生视频】天天饮食菜谱</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="yscopy2_kuai_right">
+                <div class="ys_kuai">
+                    <img src="images/视频2.jpg">
+                    <h5>儿童龋齿如何预防？</h5>
+                    <p>要预防儿童龋齿的发生，这个问题是一个非常非常大的问题，因为我们要从...</p>
+                </div>
+                <div class="ys_kuai">
+                    <img src="images/ship3.jpg">
+                    <h5>青光眼患者术前应做哪些准备?</h5>
+                    <p> 手术前的准备工作，可以从下面几个方面说，我们叫术前的一些常规检查，...</p>
+                </div>
+                <div class="ys_kuai">
+                    <img src="images/视频4.jpg">
+                    <h5>青光眼手术治疗后多久复查一次</h5>
+                    <p>所谓术后恢复就是指的刚出院这一段时间，我们叫出院近期，从大的方面讲我...</p>
+                </div>
+                <div class="ys_kuai">
+                    <img src="images/视频5.jpg">
+                    <h5>手术治疗青光眼的方法有哪些？</h5>
+                    <p> 青光眼手术的治疗方法是这样，咱们就前面说过，咱们中国一般概念，手术...</p>
+                </div>
+                <div class="ys_kuai">
+                    <img src="images/视频6.jpg">
+                    <h5>怀疑有青光眼怎么办？</h5>
+                    <p>  青光眼从发病过程上讲它有急性的或者是慢性的，急性的青光眼往往都是那...</p>
+                </div>
+                <div class="ys_kuai">
+                    <img src="images/视频7.jpg">
+                    <h5>急性青光眼容易跟哪些疾病混淆</h5>
+                    <p>从我们临床上，包括我们教科书上也提到急性的青光眼发作之后，要跟另外...</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+<!-- 页脚 -->
+    <div class="footer">
+        <div class="contion">
+            <ul>
+                <li><a href="#" class="red">友情链接:</a></li>
+                <li><a href="#">医学导航</a></li>
+                <li><a href="#">医学百科</a></li>
+                <li><a href="#">癌症</a></li>
+                <li><a href="#">微信</a></li>
+                <li><a href="#">小程序</a></li>
+            </ul>
+            <p>O Copyright 2020中华养生网------沈小龙</p>
+        </div>
+       
+    </div>
+</body>
+</html>
